@@ -1,0 +1,141 @@
+<div class="lista">
+	<div class="col-sm-12 col-md-9 col-lg-9" data-ng-controller="GerenciarNotasController as GerenciarNota">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="titulo-sala">
+					Gerenciar Notas
+				</div>
+				<div class="box-sala">
+					<ul class="list-inline">
+						<li>
+							<button data-ng-click="GerenciarNota.listaAvaliacoes();" data-ng-disabled="GerenciarNota.exibeProvas" class="btn btn-info">702 B</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="row" data-ng-if="GerenciarNota.exibeProvas">
+
+			<div class="col-md-12">
+				<div class="titulo-chamada">
+					Avaliações
+				</div>
+			</div>
+
+			<div class="col-md-3">
+				<label><b>ID</b></label>
+			</div>
+
+			<div class="col-md-3">
+				<label><b>Título</b></label>
+			</div>
+
+			<div class="col-md-3">
+				<label><b>Data</b></label>
+			</div>
+
+			<div class="col-md-3">
+				<label><b>Ação</b></label>
+			</div>
+
+			<div data-ng-repeat="avaliacao in GerenciarNota.avaliacoes">
+				<div>
+					<div class="col-md-3">
+						<div class="box-avaliacoes">
+							<ul class="list-unstyled">
+								<li>
+									{{avaliacao.id}}
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="box-avaliacoes">
+							<ul class="list-unstyled">
+								<li>
+									{{avaliacao.titulo}}
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="box-avaliacoes">
+							<ul class="list-unstyled">
+								<li>
+									{{avaliacao.data}}
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="col-md-3">
+						<div class="box-avaliacoes">
+							<ul class="list-unstyled">
+								<li>
+									<button data-ng-click="GerenciarNota.avaliar(this)" class="btn btn-success btn-sm">Avaliar</button>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row" data-ng-if="GerenciarNota.listaAlunos">
+			<div class="col-md-12 clearfix">
+				<div class="titulo-chamada">
+					Lista de Chamada
+				</div>
+				<div class="filtro">
+					<label>Filtro:</label>
+					<input data-ng-model="filtra_aluno" name="">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<label><b>Alunos</b></label>
+				</div>
+				<div class="col-md-6">
+					<label><b>Notas</b></label>
+				</div>
+			</div>
+
+			<div class="box-alunos-editar clearfix">
+				<div class="gerenciar-notas-editar">
+					<div class="row" data-ng-repeat='lista in GerenciarNota.listas | filter:filtra_aluno'>
+						<div class="col-md-4">
+							<div class="box-avaliacoes">
+								<ul class="list-unstyled">
+									<li>
+										{{lista.nome}}
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="box-avaliacoes">
+								<ul class="list-unstyled text-center">
+									<li>
+
+										<input data-ng-model="lista.nota"  placeholder="Nota Máxima: {{GerenciarNota.valorMaximo}}" />
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="btn-fechar">
+				<!-- <button data-ng-if="ListaPresenca.acabou==false" class="btn btn-block btn-warning">Salvar</button> -->
+				<button class="btn btn-block btn-warning" data-ng-click="GerenciarNota.alert_ok();">Salvar</button>
+			</div>
+		</div>
+
+
+	</div>
+</div>

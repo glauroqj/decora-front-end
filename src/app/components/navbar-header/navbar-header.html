@@ -1,0 +1,88 @@
+<header>
+  <div class="navbar navbar-default hidden-xs">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+          <a href="/" class="logo">
+            <span>Decora</span>
+          </a>
+        </div>
+        <div class="hidden-xs col-sm-4 col-md-4 col-lg-4 clearfix">
+          <div class="bar-search clearfix">
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-5 col-md-6 col-lg-6 clearfix">
+          <nav class="bar-options navbar-right">
+            <ul class="list-inline">
+              <li class="user-options">
+                <div class="btn-group" uib-dropdown>
+                  <button id="user" type="button" class="dropdown" uib-dropdown-toggle ng-disabled="disabled">
+                    <span class="user-name">Admin</span>
+                  </button>
+                  <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="user">
+                    <li>
+                      <a href="">Opção</a>
+                    </li>
+                    <li>
+                      <a href="">Opção</a>
+                    </li>
+                    <li>
+                      <a href="">Opção</a>
+                    </li>
+                    <li>
+                      <a href="">Opção</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+
+              <li class="hidden-xs hidden-sm">|</li>
+              <li uib-dropdown class="user-options">
+                <button id="menu-principal" class="more-options" type="button" uib-dropdown-toggle ng-disabled="disabled">
+                  <i class="fa fa-bars" aria-hidden="true"></i>
+                </button>
+                <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="menu-principal">
+                  <li class="visible-xs visible-sm"><a href="#login">Opção</a></li>
+                  <li class="visible-xs visible-sm"><a href="#">Opção</a></li>
+                  <li><a href="#">Opção</a></li>
+                  <li><a href="#">Opção</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div><!-- container -->
+  </div><!-- bar-top -->
+
+  <!-- mobile -->
+  <nav class="header-mobile navbar navbar-default visible-xs" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <div class="col-xs-6">
+          <a href="/" class="logo">
+            <img src="../../../assets/images/logo.png">
+            <span>Todo</span>
+          </a>
+        </div>
+        <div class="col-xs-3">
+        </div>
+        <div class="col-xs-3 user-options">
+         <!-- note the ng-init and ng-click here: -->
+         <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="collapse navbar-collapse" uib-collapse="navCollapsed">
+      <ul class="nav navbar-nav">
+        <li><a class="" data-ng-class="{active: MenuSide.isActive('/dashboard')}" href="/dashboard">dashboard</a></li>
+        <li><a class="" data-ng-class="{active: MenuSide.isActive('/lista-presenca')}" href="/lista-presenca"">lista de presença</a></li>
+        <li><a class="" data-ng-class="{active: MenuSide.isActive('/gerenciar-notas')}" href="/gerenciar-notas"">gerenciar notas</a></li>
+        <li><a class="" data-ng-class="{active: MenuSide.isActive('/plano-escolar')}" href="/plano-escolar"">plano escolar</a></li>      
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
