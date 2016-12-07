@@ -18,17 +18,18 @@
       controllerAs: 'login',
       resolve:{
         "check_login":function($cookies, $location, Notification){ 
+
           var actualCookie = $cookies.get('logado');
           if ( actualCookie == null ){
             //Notification({message: 'Você não está logado! Faça login!'}, 'error');
           }
           else if ( actualCookie === 'admin' ){
             $location.path('/admin/dashboard');
-            Notification({message: 'Olá ADMIN, você está logado!'}, 'success');
+            Notification({message: 'Olá admin, você está logado!'}, 'success');
           }
           else if ( actualCookie === 'user' ) {
             $location.path('/user/dashboard');
-            Notification({message: 'Olá USER, você está logado!'}, 'primary');
+            Notification({message: 'Olá user, você está logado!'}, 'primary');
           }
         }
       }
@@ -40,13 +41,12 @@
       resolve:{
         "check_admin":function($cookies, $location, Notification){ 
           var actualCookie = $cookies.get('logado');
-          console.log(actualCookie)
           if( actualCookie === 'admin' ){ 
             $location.path('/admin/dashboard');
           }
           else if ( actualCookie == 'user' ) {
             $location.path('/user/dashboard');
-            Notification({message: 'Olá USER, você não acesso a área ADMIN!'}, 'warning');
+            Notification({message: 'Olá user, você não acesso a área ADMIN!'}, 'warning');
           }
           else {
             $location.path('/login');    /*redirect user to home.*/

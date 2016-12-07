@@ -25,12 +25,14 @@
 				if ((user === vm.user_admin) && (password === vm.pass_admin)) {
 					//alert("ADMIN");
 					$location.path('/admin/dashboard');
-					create_auth(vm.user_admin);
+					create_auth('admin');
+					Notification({message: 'Olá '+vm.user_admin+', você está logado!'}, 'success');
 				} 
 				else if ((user === vm.user_user) && (password === vm.pass_user)) {
 					//alert("USER")
 					$location.path('/user/dashboard');
-					create_auth(vm.user_user);
+					create_auth('user');
+					Notification({message: 'Olá '+vm.user_user+' você está logado!'}, 'success');
 				}
 				else {
 					// alert("Login ou Senha inválidos!");
