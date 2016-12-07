@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-  .module('decora', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 
+  .module('decora', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngCookies',
     'ngResource', 'ngRoute', 'ui.bootstrap', 'gajus.swing', 'chart.js','ui-notification'])
   .config(config);
 
@@ -17,30 +17,25 @@
       controller: 'LoginController',
       controllerAs: 'login'
     })
-    .when('/dashboard', {
+    .when('/admin', {
       templateUrl: 'app/templates/dashboard.html',
       controller: 'DashboardController',
-      controllerAs: 'dashboard'
+      controllerAs: 'dashboard',
+      resolve: {
+        checkRoles: function(RouteAccessService, Profile) {
+          return RouteAccessService.checkRoles(Profile.isAdmin());
+        }
+      }
     })
-    .when('/lista-presenca', {
+    .when('/user', {
       templateUrl: 'app/templates/lista-presenca.html',
       controller: 'ListaPresencaController',
-      controllerAs: 'listapresenca'
-    })
-    .when('/plano-escolar', {
-      templateUrl: 'app/templates/plano-escolar.html',
-      controller: 'PlanoEscolarController',
-      controllerAs: 'planoescolar'
-    })
-    .when('/gerenciar-notas', {
-      templateUrl: 'app/templates/gerenciar-notas.html',
-      controller: 'GerenciarNotasController',
-      controllerAs: 'gerenciarnotas'
-    })
-    .when('/fechar-bimestre', {
-      templateUrl: 'app/templates/fechar-bimestre.html',
-      controller: 'FecharBimestreController',
-      controllerAs: 'fecharbimestre'
+      controllerAs: 'listapresenca',
+      resolve: {
+        checkRoles: function(RouteAccessService, Profile) {
+          return RouteAccessService.checkRoles(Profile.isAdmin() || Profile.isModification());
+        }
+      }
     })
     .otherwise({
       redirectTo: '/login'
