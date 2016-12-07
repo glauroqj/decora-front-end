@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('decora')
-.factory('AlunoClasseService', function($http, $q) {
+.factory('AlunoService', function($http, $q) {
 	var returnResponseData = function (response) {
 		return response.data;
 	};

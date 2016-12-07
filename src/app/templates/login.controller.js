@@ -5,32 +5,51 @@
 	.module('decora')
 	.controller('LoginController', LoginController);
 
-	function LoginController($rootScope, $uibModal, $log, $document, Notification, $location, AuthService) {
+	function LoginController($rootScope, $uibModal, $log, $document, Notification, $location, AuthLoginService, $cookies) {
 		var vm = this;
-		vm.submit = submit;
 
 		$rootScope.boxTitle = 'Login'
 
-		vm.enviarBimestre = function() {
-			Notification({message: 'Taleta Registrada Com Sucesso'}, 'success');
+		vm.submit = function submit (user, password) {
+			vm.response = {};
+			console.log(user, password)
+			AuthLoginService.verify().then(function(response) {
+				vm.roles = response;
+
+				// vm.listas.forEach(function(lista){
+				// 	lista.aluno.foto = vm.imagens[Math.floor(Math.random() * vm.imagens.length)];
+				// });
+
+				vm.user_admin = vm.roles.admin.name;
+				vm.pass_admin = vm.roles.admin.pass;
+
+				vm.user_user = vm.roles.user.name;
+				vm.pass_user = vm.roles.user.pass;
+
+				if ((user === vm.user_admin) && (password === vm.pass_admin)) {
+					alert("ADMIN");
+					$location.path('/admin/dashboard');
+					create_auth(vm.user_admin);
+				} 
+				else if ((user === vm.user_user) && (password === vm.pass_user)) {
+					alert("USER")
+					$location.path('/user/dashboard');
+					create_auth(vm.user_user);
+				}
+				else {
+					// alert("Login ou Senha inválidos!");
+					Notification({message: 'Login ou Senha inválidos!'}, 'error');
+				}
+			});
+		};
+
+		function create_auth (param) {
+			$cookies.put('logado', param);
 		}
 
-		vm.login = login;
-		function login(email, password) {
-			AuthService.login(email, password).then(function() {
-				$location.path('/');
-			});
-		}
+		// var actualCookie = $cookies.get('logado');
+		// console.log(actualCookie);
 
-		/* envio dados login form */
-		function submit(email, password) {
-			AuthService.login(email, password).then(function(response) {
-				/*Lidar com a resposta de sucesso do back-end*/
-				Profile.setRoles(response.data.roles);
-			}).catch(function(response) {
-				/* Lidar com casos de erro*/
-			});
-		}
-	}
+	}/*end*/
 
 })();
