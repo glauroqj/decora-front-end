@@ -17,11 +17,18 @@
       controller: 'LoginController',
       controllerAs: 'login',
       resolve:{
-        "check":function($cookies, $location, Notification){ 
+        "check_login":function($cookies, $location, Notification){ 
           var actualCookie = $cookies.get('logado');
-          console.log(actualCookie)
-          if( actualCookie == null ){ 
-            Notification({message: 'Você não está logado! Faço login!'}, 'error');
+          if ( actualCookie == null ){
+            //Notification({message: 'Você não está logado! Faça login!'}, 'error');
+          }
+          else if ( actualCookie === 'admin' ){
+            $location.path('/admin/dashboard');
+            Notification({message: 'Olá ADMIN, você está logado!'}, 'success');
+          }
+          else if ( actualCookie === 'user' ) {
+            $location.path('/user/dashboard');
+            Notification({message: 'Olá USER, você está logado!'}, 'primary');
           }
         }
       }
@@ -31,22 +38,18 @@
       controller: 'DashboardController',
       controllerAs: 'dashboard',
       resolve:{
-        "check":function($cookies, $location, Notification){ 
+        "check_admin":function($cookies, $location, Notification){ 
           var actualCookie = $cookies.get('logado');
           console.log(actualCookie)
-          if( actualCookie == 'admin' ){ 
-            /*Do something*/
-            console.log("admin")
+          if( actualCookie === 'admin' ){ 
             $location.path('/admin/dashboard');
           }
           else if ( actualCookie == 'user' ) {
-            console.log("user")
             $location.path('/user/dashboard');
+            Notification({message: 'Olá USER, você não acesso a área ADMIN!'}, 'warning');
           }
           else {
             $location.path('/login');    /*redirect user to home.*/
-            Notification({message: 'Você não tem acesso! Faço login!'}, 'error');
-            //alert("You don't have access here");
           }
         }
       }
@@ -56,47 +59,19 @@
       controller: 'DashboardController',
       controllerAs: 'dashboard',
       resolve:{
-        "check":function($cookies, $location, Notification){ 
+        "check_user":function($cookies, $location, Notification){ 
           var actualCookie = $cookies.get('logado');
-          console.log(actualCookie)
-          if( actualCookie == 'admin' ){ 
+          if( actualCookie === 'user' ){ 
             /*Do something*/
-            console.log("admin")
-            $location.path('/admin/dashboard');
-          }
-          else if ( actualCookie == 'user' ) {
-            console.log("user")
             $location.path('/user/dashboard');
+          }
+          else if ( actualCookie === 'admin' ){
+            $location.path('/user/dashboard');
+            Notification({message: 'Olá ADMIN, você está na área de USER!'}, 'warning');
           }
           else {
             $location.path('/login');    /*redirect user to home.*/
-            Notification({message: 'Você não tem acesso! Faço login!'}, 'error');
-            //alert("You don't have access here");
-          }
-        }
-      }
-    })
-    .when('/404', {
-      templateUrl: 'app/templates/404.html',
-      controller: 'NotFoundController',
-      controllerAs: '404',
-      resolve:{
-        "check":function($cookies, $location, Notification){ 
-          var actualCookie = $cookies.get('logado');
-          console.log(actualCookie)
-          if( actualCookie == 'admin' ){ 
-            /*Do something*/
-            console.log("admin")
-            $location.path('/admin/dashboard');
-          }
-          else if ( actualCookie == 'user' ) {
-            console.log("user")
-            $location.path('/user/dashboard');
-          }
-          else {
-            $location.path('/login');    /*redirect user to home.*/
-            Notification({message: 'Você não tem acesso!'}, 'error');
-            //alert("You don't have access here");
+            Notification({message: 'Você não tem permissão!'}, 'error');
           }
         }
       }

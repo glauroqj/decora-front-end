@@ -12,13 +12,9 @@
 
 		vm.submit = function submit (user, password) {
 			vm.response = {};
-			console.log(user, password)
+			//console.log(user, password)
 			AuthLoginService.verify().then(function(response) {
 				vm.roles = response;
-
-				// vm.listas.forEach(function(lista){
-				// 	lista.aluno.foto = vm.imagens[Math.floor(Math.random() * vm.imagens.length)];
-				// });
 
 				vm.user_admin = vm.roles.admin.name;
 				vm.pass_admin = vm.roles.admin.pass;
@@ -27,12 +23,12 @@
 				vm.pass_user = vm.roles.user.pass;
 
 				if ((user === vm.user_admin) && (password === vm.pass_admin)) {
-					alert("ADMIN");
+					//alert("ADMIN");
 					$location.path('/admin/dashboard');
 					create_auth(vm.user_admin);
 				} 
 				else if ((user === vm.user_user) && (password === vm.pass_user)) {
-					alert("USER")
+					//alert("USER")
 					$location.path('/user/dashboard');
 					create_auth(vm.user_user);
 				}
