@@ -87,7 +87,7 @@
   .config(function(NotificationProvider) {
     NotificationProvider.setOptions({
       delay: 10000,
-      startTop: 20,
+      startTop: 30,
       startRight: 10,
       verticalSpacing: 20,
       horizontalSpacing: 20,
