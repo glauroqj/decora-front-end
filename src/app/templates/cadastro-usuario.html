@@ -1,0 +1,68 @@
+<navbarheader></navbarheader>
+<div data-ng-controller="CadastroUsuarioController as CadastroUsuario">
+	<boxtitulo title="boxTitle"></boxtitulo>
+	<div class="grid-info">
+		<div class="container">
+			<div class="row">
+
+				<menuside></menuside>
+				<div class="lista">
+					<div class="col-sm-12 col-md-9 col-lg-9">
+
+						<div class="row">
+							<div class="col-md-12">
+								<div class="titulo-sala">
+									Cadastro
+								</div>
+								<div class="box-sala">
+									<ul class="list-inline">
+										<li>
+											<form class="form-horizontal" name="form" data-ng-submit="CadastroUsuario.submit(user, password, access, form)" role="form">
+												<div class="col-md-12">
+													<fieldset>
+
+														<div class="form-group">
+															<div class="input-group">
+																<span class="input-group-addon">Usuário</span>
+																<input type="text" class="form-control" name="user" id="user" data-ng-model="user" required="">
+															</div>
+														</div>
+
+														<div class="form-group">
+															<div class="input-group">
+																<span class="input-group-addon">Senha</span>
+																<input type="password" class="form-control" name="password" id="password" data-ng-model="password"  required="">
+															</div>
+														</div>
+
+														<div class="form-group">
+															<div class="input-group">
+																<span class="input-group-addon">Acesso</span>
+																<select class="form-control">
+																	<option data-ng-model="access" value="admin">Admin</option>
+																	<option data-ng-model="access" value="user">User</option>
+																</select>
+															</div>
+														</div>
+
+														<div class="form-group">
+															<div class="col-lg-offset-3 col-lg-10">
+																<button type="submit" class="btn btn-success">Salvar</button>
+															</div>
+														</div>
+
+													</fieldset>
+												</div>
+											</form>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

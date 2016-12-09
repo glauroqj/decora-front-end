@@ -7,15 +7,12 @@
 
 	function NavbarHeaderController($rootScope, $location, $cookies) {
 		var vm = this;
+		var actualCookie = $cookies.get('logado');
 
-		$rootScope.boxTitle = 'Login';
-
-		var url = $location.path().split('/')[1];
-		console.log(url)
-		if ( url === 'admin' ) {
+		if ( actualCookie == 'admin' ) {
 			vm.user_on = 'Admin'
 		}
-		else if ( url === 'user' ) {
+		else if ( actualCookie == 'user' ) {
 			vm.user_on = 'User'
 		}
 

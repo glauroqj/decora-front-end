@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('decora')
-.factory('AuthLoginService', function($http, $q) {
+.factory('CadastroUserService', function($http, $q) {
 	var returnResponseData = function (response) {
 		return response.data;
 	};
@@ -12,13 +12,9 @@ angular.module('decora')
 		};
 	};
 	return {
-		verify: function () {
-			return $http.get('http://localhost:3000/server/profile.json')
-			.then(returnResponseData, handleResponseError('Error ao efetuar login!'));
-		},
 		create: function () {
 			return $http.post('http://localhost:3000/server/profile.json')
-			.then(returnResponseData, handleResponseError('Erro ao salvar materia'));
+			.then(returnResponseData, handleResponseError('Erro ao salvar cadastro de usuário!'));
 		}
 	};
 });

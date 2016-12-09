@@ -15,63 +15,57 @@
     .when('/login', {
       templateUrl: 'app/templates/login.html',
       controller: 'LoginController',
-      controllerAs: 'login',
+      controllerAs: 'Login',
       resolve:{
-        "check_login":function($cookies, $location, Notification){ 
-
+        "check_login":function($cookies, $location, Notification){
           var actualCookie = $cookies.get('logado');
-          if ( actualCookie == null ){
-            //Notification({message: 'Você não está logado! Faça login!'}, 'error');
-          }
-          else if ( actualCookie === 'admin' ){
-            $location.path('/admin/dashboard');
-            Notification({message: 'Olá admin, você está logado!'}, 'success');
-          }
-          else if ( actualCookie === 'user' ) {
-            $location.path('/user/dashboard');
-            Notification({message: 'Olá user, você está logado!'}, 'primary');
-          }
-        }
-      }
-    })
-    .when('/admin/dashboard', {
-      templateUrl: 'app/templates/dashboard.html',
-      controller: 'DashboardController',
-      controllerAs: 'dashboard',
-      resolve:{
-        "check_admin":function($cookies, $location, Notification){ 
-          var actualCookie = $cookies.get('logado');
-          if( actualCookie === 'admin' ){ 
-            $location.path('/admin/dashboard');
+          if( actualCookie === 'admin' ){
+            $location.path('/dashboard');
           }
           else if ( actualCookie == 'user' ) {
-            $location.path('/user/dashboard');
-            Notification({message: 'Olá user, você não acesso a área ADMIN!'}, 'warning');
+            $location.path('/dashboard');
           }
           else {
-            $location.path('/login');    /*redirect user to home.*/
+            $location.path('/login');    /*se não estiver logado, retorna para logar*/
+          }
+
+        }
+      }
+    })
+    .when('/dashboard', {
+      templateUrl: 'app/templates/dashboard.html',
+      controller: 'DashboardController',
+      controllerAs: 'Dashboard',
+      resolve:{
+        "check_dashboard":function($cookies, $location, Notification){ 
+          var actualCookie = $cookies.get('logado');
+          if( actualCookie === 'admin' ){
+            $location.path('/dashboard');
+          }
+          else if ( actualCookie == 'user' ) {
+            $location.path('/dashboard');
+          }
+          else {
+            $location.path('/login');    /*se não estiver logado, retorna para logar*/
           }
         }
       }
     })
-    .when('/user/dashboard', {
-      templateUrl: 'app/templates/dashboard.html',
-      controller: 'DashboardController',
-      controllerAs: 'dashboard',
+    .when('/cadastro-usuario', {
+      templateUrl: 'app/templates/cadastro-usuario.html',
+      controller: 'CadastroUsuarioController',
+      controllerAs: 'CadastroUsuario',
       resolve:{
-        "check_user":function($cookies, $location, Notification){ 
+        "check_cadastro":function($cookies, $location, Notification){ 
           var actualCookie = $cookies.get('logado');
-          if( actualCookie === 'user' ){ 
-            /*Do something*/
-            $location.path('/user/dashboard');
+          if( actualCookie === 'admin' ){
+            $location.path('/cadastro-usuario');
           }
-          else if ( actualCookie === 'admin' ){
-            $location.path('/user/dashboard');
-            Notification({message: 'Olá ADMIN, você está na área de USER!'}, 'warning');
+          else if ( actualCookie == 'user' ) {
+            $location.path('/cadastro-usuario');
           }
           else {
-            $location.path('/login');    /*redirect user to home.*/
-            Notification({message: 'Você não tem permissão!'}, 'error');
+            $location.path('/login');    /*se não estiver logado, retorna para logar*/
           }
         }
       }

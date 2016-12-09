@@ -1,53 +1,30 @@
 <navbarheader></navbarheader>
-<boxtitulo title="boxTitle"></boxtitulo>
-<div class="grid-info">
-  <div class="container">
-    <div class="row">
+<div data-ng-controller="DashboardController as Dashboard">
+  <boxtitulo title="boxTitle"></boxtitulo>
+  <div class="grid-info">
+    <div class="container">
+      <div class="row">
 
-      <menuside></menuside>
-      <div class="lista">
-        <div class="col-sm-12 col-md-9 col-lg-9" data-ng-controller="DashboardController as Dashboard">
+        <menuside></menuside>
+        <div class="lista">
+          <div class="col-sm-12 col-md-9 col-lg-9">
 
-          <div class="row">
-           <div class="col-md-12">
-            <div class="titulo-sala">
-              Dashboard
+            <div class="row">
+             <div class="col-md-12">
+              <div class="titulo-sala">
+                Dashboard
+              </div>
+              <div class="box-sala">
+
+              </div>
             </div>
-            <div class="box-sala">
-             <ul class="list-inline">
-              <li>
-                <button data-ng-click="Dashboard.setR1();" class="btn btn-md btn-primary">Histórico de Desempenho</button>
-                <button data-ng-click="Dashboard.setR2();" class="btn btn-md btn-primary">Radar de Desempenho</button>
-                <button data-ng-click="Dashboard.setR3();" class="btn btn-md btn-primary">Radar de Frequencia</button>
-              </li>
-            </ul>
           </div>
+
         </div>
       </div>
 
-      <div data-ng-if="Dashboard.historico">
-        <canvas id="bar" class="chart chart-bar"
-        chart-data="data" chart-labels="labels"> chart-series="series"
-      </canvas>
+
     </div>
-
-    <div data-ng-if="Dashboard.radar">
-      <canvas id="radar" class="chart chart-radar"
-      chart-data="radardata" chart-options="options" chart-labels="radarlabels">
-    </canvas>
   </div>
-
-  <div data-ng-if="Dashboard.frequencia">
-    <canvas id="line" class="chart chart-line" chart-data="linedata"
-    chart-labels="linelabels" chart-series="lineseries" chart-options="options"
-    chart-click="onClick"
-  </canvas>
-</div>
-
-</div>
-</div>
-
-
-</div>
 </div>
 </div>
