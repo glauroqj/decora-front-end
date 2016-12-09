@@ -4,11 +4,11 @@ Desenvolver aplicação web contendo os seguintes requisitos:
   - A aplicação deverá estar protegida por login e senha: OK
   - Deverá existir 2 tipos de perfis (ADMIN e USER): OK
   - Deverá possuir interface para pesquisa dos usuários cadastrados: OK
-  - Deverá possuir interface para cadastro dos usuários da aplicação
-  - Deverá possuir interface para listar as tarefas
-  - Deverá possuir interface para cadastro das tarefas
-  - O usuário com acesso ADMIN poderá executar cadastro de outros usuários
-  - O usuário com acesso USER poderá executar cadastro de tarefas
+  - Deverá possuir interface para cadastro dos usuários da aplicação: OK
+  - Deverá possuir interface para listar as tarefas: OK
+  - Deverá possuir interface para cadastro das tarefas: OK
+  - O usuário com acesso ADMIN poderá executar cadastro de outros usuários: OK
+  - O usuário com acesso USER poderá executar cadastro de tarefas: OK
   - Deverá ser criado um componente Angular para mostrar os dados da tarefa na listagem
   - Fique livre para melhorar e evoluir os requisitos e funcionalidades
 

@@ -1,5 +1,5 @@
 <navbarheader></navbarheader>
-<div data-ng-controller="CadastroUsuarioController as CadastroUsuario">
+<div data-ng-controller="CadastroTarefaController as CadastroTarefa">
 	<boxtitulo title="boxTitle"></boxtitulo>
 	<div class="grid-info">
 		<div class="container">
@@ -11,36 +11,33 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="titulo-sala">
-								Cadastro
+								tarefas
 							</div>
 							<div class="box-sala">
 								<ul class="list-inline">
 									<li>
-										<form class="form-horizontal" name="form" data-ng-submit="CadastroUsuario.submit(user, password, access)" role="form">
+										<form class="form-horizontal" name="form" data-ng-submit="CadastroTarefa.submit(nome, description, date)" role="form">
 											<div class="col-md-12">
 												<fieldset>
 
 													<div class="form-group">
 														<div class="input-group">
-															<span class="input-group-addon">Usuário</span>
-															<input type="text" class="form-control" name="user" id="user" data-ng-model="user" required="">
+															<span class="input-group-addon">Nome</span>
+															<input type="text" class="form-control" name="nome" id="nome" data-ng-model="nome" required="">
 														</div>
 													</div>
 
 													<div class="form-group">
 														<div class="input-group">
-															<span class="input-group-addon">Senha</span>
-															<input type="password" class="form-control" name="password" id="password" data-ng-model="password"  required="">
+															<span class="input-group-addon">Descrição</span>
+															<input type="text" class="form-control" name="description" id="description" data-ng-model="description" required="">
 														</div>
 													</div>
 
 													<div class="form-group">
 														<div class="input-group">
-															<span class="input-group-addon">Acesso</span>
-															<select class="form-control" data-ng-model="access">
-																<option value="admin">Admin</option>
-																<option value="user">User</option>
-															</select>
+															<span class="input-group-addon">Data de Conclusão</span>
+															<input type="date" class="form-control" name="date" id="date" data-ng-model="date" required="">
 														</div>
 													</div>
 
@@ -59,19 +56,19 @@
 						</div>
 					</div> <!-- row -->
 
-					<div data-ng-if="CadastroUsuario.yes_user">
+					<div data-ng-if="CadastroTarefa.yes_user">
 
-						<h4>Usuários Cadastrados</h4>
+						<h4>Tarefas Cadastradas</h4>
 
 						<div class="box-alunos-editar clearfix">
 							<div class="gerenciar-notas-editar">
-								<div class="row" data-ng-repeat='lista_user in CadastroUsuario.lista_users'>
+								<div class="row" data-ng-repeat='lista_task in CadastroTarefa.lista_tasks'>
 									<div class="col-md-12">
 										<div class="col-md-6">
 											<div class="box-avaliacoes">
 												<ul class="list-unstyled">
 													<li>
-														{{lista_user.name}}
+														{{lista_task.name}}
 													</li>
 												</ul>
 											</div>
@@ -80,7 +77,7 @@
 											<div class="box-avaliacoes">
 												<ul class="list-unstyled text-center">
 													<li>
-														{{lista_user.acess}}
+														{{lista_task.description}}
 													</li>
 												</ul>
 											</div>

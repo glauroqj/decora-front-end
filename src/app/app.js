@@ -62,7 +62,26 @@
             $location.path('/cadastro-usuario');
           }
           else if ( actualCookie == 'user' ) {
-            $location.path('/cadastro-usuario');
+            $location.path('/cadastro-tarefa');
+          }
+          else {
+            $location.path('/login');    /*se não estiver logado, retorna para logar*/
+          }
+        }
+      }
+    })
+    .when('/cadastrar-tarefa', {
+      templateUrl: 'app/templates/cadastrar-tarefa.html',
+      controller: 'CadastroTarefaController',
+      controllerAs: 'CadastroTarefa',
+      resolve:{
+        "check_cadastro":function($cookies, $location, Notification){ 
+          var actualCookie = $cookies.get('logado');
+          if( actualCookie === 'admin' ){
+            $location.path('/cadastrar-tarefa');
+          }
+          else if ( actualCookie == 'user' ) {
+            $location.path('/cadastrar-tarefa');
           }
           else {
             $location.path('/login');    /*se não estiver logado, retorna para logar*/
