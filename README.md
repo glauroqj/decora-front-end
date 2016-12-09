@@ -3,7 +3,7 @@ Requisitos funcionais
 Desenvolver aplicação web contendo os seguintes requisitos:
   - A aplicação deverá estar protegida por login e senha: OK
   - Deverá existir 2 tipos de perfis (ADMIN e USER): OK
-  - Deverá possuir interface para pesquisa dos usuários cadastrados
+  - Deverá possuir interface para pesquisa dos usuários cadastrados: OK
   - Deverá possuir interface para cadastro dos usuários da aplicação
   - Deverá possuir interface para listar as tarefas
   - Deverá possuir interface para cadastro das tarefas

@@ -16,6 +16,63 @@
               </div>
               <div class="box-sala">
 
+                <div class="row" data-ng-if="Dashboard.no_user">
+                  <div class="col-md-12 clearfix">
+                    <h5>Nenhum usuário cadastrado!</h5>
+                    <ul class="list-unstyled">
+                      <li>
+                        <a href="">Cadastrar usuário</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div> <!-- row -->
+
+                <div class="row">
+                  <div class="col-md-12 clearfix">
+                    <div class="titulo-chamada">
+                      Usuários Cadastrados
+                    </div>
+                    <div class="filtro">
+                      <label>Filtro:</label>
+                      <input data-ng-model="filtra_user" name="">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label><b>Nome</b></label>
+                    </div>
+                    <div class="col-md-4">
+                      <label><b>Acesso</b></label>
+                    </div>
+                  </div>
+
+                  <div class="box-alunos-editar clearfix">
+                    <div class="gerenciar-notas-editar">
+                      <div class="row" data-ng-repeat='lista_user in Dashboard.lista_users | filter:filtra_user'>
+                        <div class="col-md-6">
+                          <div class="box-avaliacoes">
+                            <ul class="list-unstyled">
+                              <li>
+                                {{lista_user.name}}
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="box-avaliacoes">
+                            <ul class="list-unstyled text-center">
+                              <li>
+                                {{lista_user.acess}}
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div> <!-- row -->
+
               </div>
             </div>
           </div>
