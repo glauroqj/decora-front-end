@@ -3,147 +3,148 @@
   <boxtitulo title="boxTitle"></boxtitulo>
   <div class="grid-info">
     <div class="container">
+      <div class="row">
+        <menuside></menuside>
+        <div class="lista">
+          <div class="col-sm-12 col-md-9 col-lg-9">
 
-      <menuside></menuside>
-      <div class="lista">
-        <div class="col-sm-12 col-md-9 col-lg-9">
+            <div class="row">
+             <div class="col-md-12">
+              <div class="titulo-sala">
+                Dashboard
+              </div>
+              <div class="box-sala">
 
-          <div class="row">
-           <div class="col-md-12">
-            <div class="titulo-sala">
-              Dashboard
-            </div>
-            <div class="box-sala">
-
-              <div class="row" data-ng-if="Dashboard.no_user">
-                <div class="col-md-12 clearfix">
-                  <h5>Nenhum usuário cadastrado!</h5>
-                  <ul class="list-unstyled">
-                    <li>
-                      <a data-ng-class="{active: MenuSide.isActive('/cadastro-usuario')}" href="/cadastro-usuario"">Cadastrar usuário</a>
-                    </li>
-                  </ul>
-                </div>
-              </div> <!-- row -->
-
-              <div class="row" data-ng-if="Dashboard.no_task">
-                <div class="col-md-12 clearfix">
-                  <h5>Nenhuma tarefa cadastrado!</h5>
-                  <ul class="list-unstyled">
-                    <li>
-                      <a data-ng-class="{active: MenuSide.isActive('/cadastro-usuario')}" href="/cadastro-tarefa"">Cadastrar tarefa</a>
-                    </li>
-                  </ul>
-                </div>
-              </div> <!-- row -->
-
-              <div class="row" data-ng-hide="Dashboard.actualCookie == 'user'"  data-ng-if="Dashboard.yes_user">
-                <div class="col-md-12 clearfix">
-                  <div class="titulo-chamada">
-                    Usuários Cadastrados
+                <div class="row" data-ng-if="Dashboard.no_user">
+                  <div class="col-md-12 clearfix">
+                    <h5>Nenhum usuário cadastrado!</h5>
+                    <ul class="list-unstyled">
+                      <li>
+                        <a data-ng-class="{active: MenuSide.isActive('/cadastro-usuario')}" href="/cadastro-usuario"">Cadastrar usuário</a>
+                      </li>
+                    </ul>
                   </div>
-                  <div class="filtro">
-                    <label>Filtro:</label>
-                    <input data-ng-model="filtra_user" name="">
-                  </div>
-                </div>
+                </div> <!-- row -->
 
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="col-md-6">
-                      <label><b>Nome</b></label>
+                <div class="row" data-ng-if="Dashboard.no_task">
+                  <div class="col-md-12 clearfix">
+                    <h5>Nenhuma tarefa cadastrado!</h5>
+                    <ul class="list-unstyled">
+                      <li>
+                        <a data-ng-class="{active: MenuSide.isActive('/cadastro-usuario')}" href="/cadastro-tarefa"">Cadastrar tarefa</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div> <!-- row -->
+
+                <div class="row" data-ng-hide="Dashboard.actualCookie == 'user'"  data-ng-if="Dashboard.yes_user">
+                  <div class="col-md-12 clearfix">
+                    <div class="titulo-chamada">
+                      Usuários Cadastrados
                     </div>
-                    <div class="col-md-4">
-                      <label><b>Acesso</b></label>
+                    <div class="filtro">
+                      <label>Filtro:</label>
+                      <input data-ng-model="filtra_user" name="">
                     </div>
                   </div>
-                </div>
 
-                <div class="box-alunos-editar clearfix">
-                  <div class="gerenciar-notas-editar">
-                    <div class="row" data-ng-repeat='lista_user in Dashboard.lista_users | filter:filtra_user'>
-                      <div class="col-md-12">
-                        <div class="col-md-6">
-                          <div class="box-avaliacoes">
-                            <ul class="list-unstyled">
-                              <li>
-                                {{lista_user.name}}
-                              </li>
-                            </ul>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="col-md-6">
+                        <label><b>Nome</b></label>
+                      </div>
+                      <div class="col-md-4">
+                        <label><b>Acesso</b></label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="box-alunos-editar clearfix">
+                    <div class="gerenciar-notas-editar">
+                      <div class="row" data-ng-repeat='lista_user in Dashboard.lista_users | filter:filtra_user'>
+                        <div class="col-md-12">
+                          <div class="col-md-6">
+                            <div class="box-avaliacoes">
+                              <ul class="list-unstyled">
+                                <li>
+                                  {{lista_user.name}}
+                                </li>
+                              </ul>
+                            </div>
                           </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="box-avaliacoes">
-                            <ul class="list-unstyled text-center">
-                              <li>
-                                {{lista_user.acess}}
-                              </li>
-                            </ul>
+                          <div class="col-md-6">
+                            <div class="box-avaliacoes">
+                              <ul class="list-unstyled text-center">
+                                <li>
+                                  {{lista_user.acess}}
+                                </li>
+                              </ul>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div> <!-- row -->
+                </div> <!-- row -->
 
-              <div class="row" data-ng-if="Dashboard.yes_task">
-                <div class="col-md-12 clearfix">
-                  <div class="titulo-chamada">
-                    Tarefas Cadastradas
-                  </div>
-                  <div class="filtro">
-                    <label>Filtro:</label>
-                    <input data-ng-model="filtra_task" name="">
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-12">
-                    <div class="col-md-6">
-                      <label><b>Nome Tarefa</b></label>
+                <div class="row" data-ng-if="Dashboard.yes_task">
+                  <div class="col-md-12 clearfix">
+                    <div class="titulo-chamada">
+                      Tarefas Cadastradas
                     </div>
-                    <div class="col-md-4">
-                      <label><b>Descrição</b></label>
+                    <div class="filtro">
+                      <label>Filtro:</label>
+                      <input data-ng-model="filtra_task" name="">
                     </div>
                   </div>
-                </div>
 
-                <div class="box-alunos-editar clearfix">
-                  <div class="gerenciar-notas-editar">
-                    <div class="row" data-ng-repeat='lista_task in Dashboard.lista_tasks | filter:filtra_task'>
-                      <div class="col-md-12">
-                        <div class="col-md-6">
-                          <div class="box-avaliacoes">
-                            <ul class="list-unstyled">
-                              <li>
-                                {{lista_task.name}}
-                              </li>
-                            </ul>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="col-md-6">
+                        <label><b>Nome Tarefa</b></label>
+                      </div>
+                      <div class="col-md-4">
+                        <label><b>Descrição</b></label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="box-alunos-editar clearfix">
+                    <div class="gerenciar-notas-editar">
+                      <div class="row" data-ng-repeat='lista_task in Dashboard.lista_tasks | filter:filtra_task'>
+                        <div class="col-md-12">
+                          <div class="col-md-6">
+                            <div class="box-avaliacoes">
+                              <ul class="list-unstyled">
+                                <li>
+                                  {{lista_task.name}}
+                                </li>
+                              </ul>
+                            </div>
                           </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="box-avaliacoes">
-                            <ul class="list-unstyled text-center">
-                              <li>
-                                {{lista_task.description}}
-                              </li>
-                            </ul>
+                          <div class="col-md-6">
+                            <div class="box-avaliacoes">
+                              <ul class="list-unstyled text-center">
+                                <li>
+                                  {{lista_task.description}}
+                                </li>
+                              </ul>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div> <!-- row -->
+                </div> <!-- row -->
 
+              </div>
             </div>
           </div>
+
         </div>
-
       </div>
-    </div>
 
+    </div>
   </div>
 </div>
 </div>
