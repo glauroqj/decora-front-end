@@ -17,7 +17,7 @@
 								<div class="box-sala">
 									<ul class="list-inline">
 										<li>
-											<form class="form-horizontal" name="form" data-ng-submit="CadastroUsuario.submit(user, password, access, form)" role="form">
+											<form class="form-horizontal" name="form" data-ng-submit="CadastroUsuario.submit(user, password, access)" role="form">
 												<div class="col-md-12">
 													<fieldset>
 
@@ -38,9 +38,9 @@
 														<div class="form-group">
 															<div class="input-group">
 																<span class="input-group-addon">Acesso</span>
-																<select class="form-control">
-																	<option data-ng-model="access" value="admin">Admin</option>
-																	<option data-ng-model="access" value="user">User</option>
+																<select class="form-control" data-ng-model="access">
+																	<option value="admin">Admin</option>
+																	<option value="user">User</option>
 																</select>
 															</div>
 														</div>
