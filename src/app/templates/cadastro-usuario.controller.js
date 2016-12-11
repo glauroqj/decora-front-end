@@ -15,7 +15,7 @@
 			vm.usuarios_cadastrados = JSON.parse(localStorage.getItem('cadastro-usuario')) || [];
 
 			vm.usuarios_cadastrados.push({name: user, pass: password, acess: acess});
-			
+
 			localStorage.setItem('cadastro-usuario', JSON.stringify(vm.usuarios_cadastrados));
 
 			Notification({message: 'Usuário '+user+' Cadastrado Com Sucesso'}, 'success');
