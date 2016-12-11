@@ -11,30 +11,34 @@
 						<div class="row">
 							<div class="col-md-12">
 								<div class="titulo-sala">
-									Cadastro
+									cadastro
 								</div>
 								<div class="box-sala">
 									<ul class="list-inline">
 										<li>
 											<form class="form-horizontal" name="form" data-ng-submit="CadastroUsuario.submit(user, password, access)" role="form">
-												<div class="col-md-12">
-													<fieldset>
+												<fieldset>
 
-														<div class="form-group">
+													<div class="form-group">
+														<div class="col-md-offset-2 col-md-6">
 															<div class="input-group">
 																<span class="input-group-addon">Usuário</span>
 																<input type="text" class="form-control" name="user" id="user" data-ng-model="user" required="">
 															</div>
 														</div>
 
-														<div class="form-group">
+													</div>
+													<div class="form-group">
+														<div class="col-md-offset-2 col-md-6">
 															<div class="input-group">
 																<span class="input-group-addon">Senha</span>
 																<input type="password" class="form-control" name="password" id="password" data-ng-model="password"  required="">
 															</div>
 														</div>
 
-														<div class="form-group">
+													</div>
+													<div class="form-group">
+														<div class="col-md-offset-2 col-md-6">
 															<div class="input-group">
 																<span class="input-group-addon">Acesso</span>
 																<select class="form-control" data-ng-model="access">
@@ -43,15 +47,15 @@
 																</select>
 															</div>
 														</div>
+													</div>
 
-														<div class="form-group">
-															<div class="col-lg-offset-3 col-lg-10">
-																<button type="submit" class="btn btn-success">Salvar</button>
-															</div>
+													<div class="form-group">
+														<div class="col-lg-offset-2 col-md-6">
+															<button type="submit" class="btn btn-login btn-block">Salvar</button>
 														</div>
+													</div>
 
-													</fieldset>
-												</div>
+												</fieldset>
 											</form>
 										</li>
 									</ul>
@@ -65,6 +69,16 @@
 
 							<div class="box-alunos-editar clearfix">
 								<div class="gerenciar-notas-editar">
+									<div class="row">
+										<div class="col-md-12">
+											<div class="col-md-6">
+												<b>Nome</b>
+											</div>
+											<div class="col-md-6">
+												<b>Acesso</b>
+											</div>
+										</div>
+									</div>
 									<div class="row" data-ng-repeat='lista_user in CadastroUsuario.lista_users'>
 										<div class="col-md-12">
 											<div class="col-md-6">
@@ -78,7 +92,7 @@
 											</div>
 											<div class="col-md-6">
 												<div class="box-avaliacoes">
-													<ul class="list-unstyled text-center">
+													<ul class="list-unstyled">
 														<li>
 															{{lista_user.acess}}
 														</li>

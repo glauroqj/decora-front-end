@@ -1,37 +1,28 @@
-Requisitos funcionais
+Passo a Passo
 
-Desenvolver aplicação web contendo os seguintes requisitos:
-  - A aplicação deverá estar protegida por login e senha: OK
-  - Deverá existir 2 tipos de perfis (ADMIN e USER): OK
-  - Deverá possuir interface para pesquisa dos usuários cadastrados: OK
-  - Deverá possuir interface para cadastro dos usuários da aplicação: OK
-  - Deverá possuir interface para listar as tarefas: OK
-  - Deverá possuir interface para cadastro das tarefas: OK
-  - O usuário com acesso ADMIN poderá executar cadastro de outros usuários: OK
-  - O usuário com acesso USER poderá executar cadastro de tarefas: OK
-  - Deverá ser criado um componente Angular para mostrar os dados da tarefa na listagem
-  - Fique livre para melhorar e evoluir os requisitos e funcionalidades
+1- npm install
 
+2- bower install
 
-Requisitos não funcionais
+3- gulp serve ( Rodar o sistema )
 
-Frontend
+----------------------------------
 
-O frontend deverá ser desenvolvido em AngularJS. Para tanto, deverá ser utilizado o padrão HotTowel (https://github.com/johnpapa/generator-hottowel).
-O HotTowel é um conjunto de boas práticas unidos em uma aplicação modelo pré-configurada. Siga este modelo para a camada de frontend.
+Acesso
 
-Para estilos da interface utilize o bootstrap. Utilizar alguma biblioteca de template conhecida que use o bootstrap como base. Capriche na interface,
-pois a vaga é para front end!
+-- Admin
+    login: admin
+    senha: 123456
 
-Durante o desenvolvimento levar em consideração boas práticas de projeto em AngularJS JohnPapa, conforme link com guia https://github.com/johnpapa/angular-styleguide.
+-- User
+    login: user
+    senha: 123456
 
-O módulo frontend deverá se comunicar com o backend utilizando serviços REST com JSON.
+----------------------------------
 
+Tecnologia Utilizada
 
-Backend
-
-Utilizar o nodejs, e persistir os dados somente em memória ou session do usuário.
-
-Build and run
-
-Utilizar gulp (padrão HotTowel) para build do módulo front.
+Node.js
+Angular.js
+Gulp
+Less

@@ -16,7 +16,7 @@
 			"access": "admin"
 		},
 		{
-			"name":"pedro",
+			"name":"user",
 			"pass":"123456",
 			"access": "user"
 		}
