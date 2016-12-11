@@ -70,7 +70,7 @@
         }
       }
     })
-    .when('/cadastrar-tarefa', {
+    .when('/cadastro-tarefa', {
       templateUrl: 'app/templates/cadastrar-tarefa.html',
       controller: 'CadastroTarefaController',
       controllerAs: 'CadastroTarefa',
@@ -78,10 +78,10 @@
         "check_cadastro":function($cookies, $location, Notification){ 
           var actualCookie = $cookies.get('logado');
           if( actualCookie === 'admin' ){
-            $location.path('/cadastrar-tarefa');
+            $location.path('/cadastro-tarefa');
           }
           else if ( actualCookie == 'user' ) {
-            $location.path('/cadastrar-tarefa');
+            $location.path('/cadastro-tarefa');
           }
           else {
             $location.path('/login');    /*se não estiver logado, retorna para logar*/

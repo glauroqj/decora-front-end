@@ -14,6 +14,7 @@
  @principal-color-dark: #B42C3D;
 
  @success: #2ECC71;
+ @success-dark: #28B263;
  @background-search: #4992fc;
  @border-search: #407fda;
 
@@ -75,6 +76,9 @@
 	}
 	//buttons
 	.btn {
+		border-radius: 0px;
+		text-transform: uppercase;
+		&:extend(.transition);
 		i {
 		}
 		&:hover {
@@ -89,6 +93,7 @@
 
 	button {
 		outline: none !important;
+		&:extend(.transition);
 		&:active  {
 			outline: none !important;
 			color: #ffffff;
@@ -105,6 +110,18 @@
 		color: #ffffff;
 		&:hover {
 			color: #ffffff;
+		}
+	}
+
+	.btn-login {
+		background-color: @success;
+		color: #ffffff;
+		margin-top: 5px;
+		font-weight: 600;
+		&:hover {
+			color: #ffffff;
+			background-color: @success-dark;
+			border-color: @success-dark;
 		}
 	}
 
@@ -132,11 +149,8 @@
 		border: 1px solid @gray-color;
 		background-color: transparent;
 		&:hover {
-			background-color: #cecece;
-			border-color: #cecece
-		}
-		&:active {
-			color: #484848;
+			background-color: #e8eded;
+			border-color: #e8eded;
 		}
 	}
 
@@ -152,7 +166,7 @@
 		&:hover {
 			color: #ffffff;
 			background: @principal-color-dark;
-		} 
+		}
 	}
 
 	.btn-success {
@@ -414,6 +428,23 @@
 		}
 	}
 
+	.login-screen {
+		margin-top: 150px;
+		.box-login {
+			background-color: #f5f5f5;
+			padding: 15px;
+			.titulo-login {
+				font-size: 1.5em;
+				font-weight: 600;
+				text-transform: uppercase;
+				margin-bottom: 10px;
+				margin-top: 10px;
+				//border-bottom: 1px solid #e8eded;
+				text-align: center;
+			}
+		}
+	}
+
 	.titulo-top {
 		background-color: #e8eded;
 		padding: 25px 0px;
@@ -431,6 +462,7 @@
 			+ .active {
 				background-color: @principal-color;
 				border-color: @principal-color;
+				font-weight: 600;
 			}
 		}
 	}
@@ -464,22 +496,21 @@
 	}
 
 	.lista {
+		.box-dashboard {
+			border: 1px solid #eee;
+			padding: 20px;
+			&:first-child {
+				margin-bottom: 20px;
+			}
+		}
 		.titulo-sala {
 			font-size: 1.2em;
-			font-weight: 400;
+			font-weight: 600;
 			text-transform: uppercase;
 			margin-bottom: 10px;
 			margin-top: 10px;
+			padding-bottom: 10px;
 			border-bottom: 1px solid #e8eded;
-		}
-		.titulo-login {
-			font-size: 1.2em;
-			font-weight: 400;
-			text-transform: uppercase;
-			margin-bottom: 10px;
-			margin-top: 10px;
-			border-bottom: 1px solid #e8eded;
-			text-align: left;
 		}
 		.box-sala {
 			ul {
@@ -671,6 +702,7 @@
  */
  .ui-notification
  {
+ 	font-family: 'Open Sans', sans-serif;
  	position: fixed;
  	z-index: 9999;
 
@@ -682,8 +714,10 @@
 
  	color: #fff;
  	border-radius: 0;
+ 	text-align: center;
+ 	font-weight: 600;
  	background: #337ab7;
- 	box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
+ 	//box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
  }
  .ui-notification.clickable
  {
@@ -735,12 +769,12 @@
  .ui-notification.error
  {
  	color: #fff;
- 	background: #d9534f;
+ 	background: #D24D57;
  }
  .ui-notification.success
  {
  	color: #fff;
- 	background: #5cb85c;
+ 	background: @success;
  }
  .ui-notification.info
  {

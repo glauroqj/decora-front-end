@@ -23,6 +23,9 @@
 		if ( vm.lista_users != null ) {
 			vm.no_user = false;
 			vm.yes_user = true;
+		}
+
+		if ( vm.lista_tasks != null ) {
 			vm.no_task = false;
 			vm.yes_task = true;
 		}

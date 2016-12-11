@@ -1,86 +1,53 @@
-<div data-ng-controller="LoginController as Login">
-<nav>
-  <ul class="list-inline">
-    <li><a href="#nowhere" title="Lorum ipsum dolor sit amet">Lorem</a></li>
-    <li><a href="#nowhere" title="Aliquam tincidunt mauris eu risus">Aliquam</a></li>
-    <li><a href="#nowhere" title="Morbi in sem quis dui placerat ornare">Morbi</a></li>
-    <li><a href="#nowhere" title="Praesent dapibus, neque id cursus faucibus">Praesent</a></li>
-    <li><a href="#nowhere" title="Pellentesque fermentum dolor">Pellentesque</a></li>
-  </ul>
-</nav>
-<div class="grid-info">
-  <div class="container">
-    <div class="row">
+<div class="login-screen" data-ng-controller="LoginController as Login">
+  <div class="grid-info">
+    <div class="container">
+      <div class="row">
 
-      <div class="lista clearfix">
-        <div class="col-md-offset-2 col-lg-offset-4 col-sm-12 col-md-9 col-lg-4">
-          <div class="row">
-            <div class="titulo-login">
-              Login
-            </div>
-          </div><!-- row -->
+        <div class="lista clearfix">
 
-          <div class="form-login clearfix">
-            <div class="row">
-              <form class="form-horizontal" name="form" data-ng-submit="Login.submit(user, password)" role="form">
-                <div class="col-md-12">
-                  <fieldset>
+          <div class="col-md-offset-2 col-lg-offset-4 col-sm-12 col-md-9 col-lg-4">
+            <div class="box-login">
+              <div class="titulo-login">
+                Login
+              </div>
 
-                    <div class="form-group">
-                      <div class="input-group">
-                        <span class="input-group-addon">Usuário</span>
-                        <input type="text" class="form-control" name="user" id="user" data-ng-model="user" required="">
+              <div class="form-login clearfix">
+                <form class="form-horizontal" name="form" data-ng-submit="Login.submit(user, password)" role="form">
+                  <div class="col-md-12">
+                    <fieldset>
+
+                      <div class="form-group">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="fa fa-user" aria-hidden="true"></i></span>
+                          <input type="text" class="form-control input-md" name="user" id="user" data-ng-model="user" required="" placeholder="login">
+                        </div>
                       </div>
-                    </div>
 
-                    <div class="form-group">
-                      <div class="input-group">
-                        <span class="input-group-addon">Senha</span>
-                        <input type="password" class="form-control" name="password" id="password" data-ng-model="password"  required="">
+                      <div class="form-group">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="fa fa-key" aria-hidden="true"></i></span>
+                          <input type="password" class="form-control input-md" name="password" id="password" data-ng-model="password"  required="" placeholder="senha">
+                        </div>
                       </div>
-                    </div>
 
-                    <div class="form-group">
-                      <div class="col-lg-offset-3 col-lg-10">
-                        <button type="submit" class="btn btn-decora">Efetuar Login!</button>
+                      <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-8">
+                        <button type="submit" class="btn btn-login btn-md btn-block">Entrar</button>
+                        </div>
                       </div>
-                    </div>
 
-                  </fieldset>
-                </div>
-              </form>
+                    </fieldset>
+                  </div>
+                </form>
+
+              </div>
             </div>
           </div>
+
         </div>
-
       </div>
-    </div>
 
+    </div>
   </div>
 </div>
 </div>
-</div>
-
-<!-- 
-<form ng-submit="submit(user,password)" name="myForm" novalidate>
-
-  <p>Username:
-    <br>
-    <input type="text" name="user" ng-model="user" required>
-    <span style="color:red" ng-show="myForm.user.$dirty && myForm.user.$invalid">
-<span ng-show="myForm.user.$error.required">Username is required.</span>
-    </span>
-  </p>
-
-  <p>Password:
-    <br>
-    <input type="password" name="password" ng-model="password" required>
-    <span style="color:red" ng-show="myForm.password.$dirty && myForm.password.$invalid">
-<span ng-show="myForm.password.$error.required">Password is required.</span>
-    <span ng-show="myForm.password.$error.password">Invalid Password.</span>
-    </span>
-  </p>
-
-  <p>
-    <input type="submit" ng-disabled="myForm.user.$dirty && myForm.user.$invalid || myForm.password.$dirty && myForm.password.$invalid">
-  </p> -->

@@ -13,29 +13,29 @@
               <div class="titulo-sala">
                 Dashboard
               </div>
-              <div class="box-sala">
+              <div class="box-sala clearfix">
 
-                <div class="row" data-ng-if="Dashboard.no_user">
-                  <div class="col-md-12 clearfix">
+                <div data-ng-if="Dashboard.no_user">
+                  <div class="col-md-12 clearfix text-center box-dashboard">
                     <h5>Nenhum usuário cadastrado!</h5>
                     <ul class="list-unstyled">
                       <li>
-                        <a data-ng-class="{active: MenuSide.isActive('/cadastro-usuario')}" href="/cadastro-usuario"">Cadastrar usuário</a>
+                        <a class="btn btn-comum" data-ng-class="{active: Dashboard.isActive('/cadastro-usuario')}" href="/cadastro-usuario"">Cadastrar usuário</a>
                       </li>
                     </ul>
                   </div>
-                </div> <!-- row -->
 
-                <div class="row" data-ng-if="Dashboard.no_task">
-                  <div class="col-md-12 clearfix">
-                    <h5>Nenhuma tarefa cadastrado!</h5>
-                    <ul class="list-unstyled">
-                      <li>
-                        <a data-ng-class="{active: MenuSide.isActive('/cadastro-usuario')}" href="/cadastro-tarefa"">Cadastrar tarefa</a>
-                      </li>
-                    </ul>
+                  <div data-ng-if="Dashboard.no_task">
+                    <div class="col-md-12 clearfix text-center box-dashboard">
+                      <h5>Nenhuma tarefa cadastrado!</h5>
+                      <ul class="list-unstyled">
+                        <li>
+                          <a class="btn btn-comum" data-ng-class="{active: Dashboard.isActive('/cadastro-tarefa')}" href="/cadastro-tarefa"">Cadastrar tarefa</a>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
-                </div> <!-- row -->
+                </div>
 
                 <div class="row" data-ng-hide="Dashboard.actualCookie == 'user'"  data-ng-if="Dashboard.yes_user">
                   <div class="col-md-12 clearfix">
