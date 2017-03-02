@@ -5,7 +5,7 @@
 	.module('decora')
 	.controller('CadastroUsuarioController', CadastroUsuarioController);
 
-	function CadastroUsuarioController($rootScope, Notification, $document, $location, $cookies) {
+	function CadastroUsuarioController($rootScope, ngNotify, $document, $location, $cookies) {
 		var vm = this;
 		vm.yes_user = false;
 		$rootScope.boxTitle = 'cadastro de usuários';
@@ -18,7 +18,11 @@
 
 			localStorage.setItem('cadastro-usuario', JSON.stringify(vm.usuarios_cadastrados));
 
-			Notification({message: 'Usuário '+user+' Cadastrado Com Sucesso'}, 'success');
+			ngNotify.set('Usuário cadastrado com sucesso', {
+				position: 'top',
+				type: 'success',
+				duration: 800
+			});
 
 			verify();
 		};

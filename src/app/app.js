@@ -3,7 +3,7 @@
 
   angular
   .module('decora', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngCookies',
-    'ngResource', 'ngRoute', 'ui.bootstrap', 'gajus.swing', 'chart.js','ui-notification'])
+    'ngResource', 'ngRoute', 'ui.bootstrap', 'gajus.swing', 'chart.js', 'ngNotify'])
   .config(config);
 
 
@@ -17,7 +17,7 @@
       controller: 'LoginController',
       controllerAs: 'Login',
       resolve:{
-        "check_login":function($cookies, $location, Notification){
+        "check_login":function($cookies, $location, ngNotify){
           var actualCookie = $cookies.get('logado');
           if( actualCookie === 'admin' ){
             $location.path('/dashboard');
@@ -37,7 +37,7 @@
       controller: 'DashboardController',
       controllerAs: 'Dashboard',
       resolve:{
-        "check_dashboard":function($cookies, $location, Notification){ 
+        "check_dashboard":function($cookies, $location, ngNotify){ 
           var actualCookie = $cookies.get('logado');
           if( actualCookie === 'admin' ){
             $location.path('/dashboard');
@@ -56,7 +56,7 @@
       controller: 'CadastroUsuarioController',
       controllerAs: 'CadastroUsuario',
       resolve:{
-        "check_cadastro":function($cookies, $location, Notification){ 
+        "check_cadastro":function($cookies, $location, ngNotify){ 
           var actualCookie = $cookies.get('logado');
           if( actualCookie === 'admin' ){
             $location.path('/cadastro-usuario');
@@ -75,7 +75,7 @@
       controller: 'CadastroTarefaController',
       controllerAs: 'CadastroTarefa',
       resolve:{
-        "check_cadastro":function($cookies, $location, Notification){ 
+        "check_cadastro":function($cookies, $location, ngNotify){ 
           var actualCookie = $cookies.get('logado');
           if( actualCookie === 'admin' ){
             $location.path('/cadastro-tarefa');
@@ -94,19 +94,5 @@
     });
 
   }
-
-  angular
-  .module('notificationTest', ['ui-notification'])
-  .config(function(NotificationProvider) {
-    NotificationProvider.setOptions({
-      delay: 10000,
-      startTop: 30,
-      startRight: 10,
-      verticalSpacing: 20,
-      horizontalSpacing: 20,
-      positionX: 'left',
-      positionY: 'bottom'
-    });
-  });
 
 })();

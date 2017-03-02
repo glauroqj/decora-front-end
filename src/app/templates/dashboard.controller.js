@@ -5,7 +5,7 @@
 	.module('decora')
 	.controller('DashboardController', DashboardController);
 
-	function DashboardController($rootScope, $uibModal, $log, $document, Notification, $location, $cookies) {
+	function DashboardController($rootScope, $uibModal, $log, $document, ngNotify, $location, $cookies) {
 		var vm = this;
 		vm.no_user = true;
 		vm.yes_user = false;

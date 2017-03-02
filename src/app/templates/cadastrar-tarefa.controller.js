@@ -5,7 +5,7 @@
 	.module('decora')
 	.controller('CadastroTarefaController', CadastroTarefaController);
 
-	function CadastroTarefaController($rootScope, Notification, $document, $location, $cookies) {
+	function CadastroTarefaController($rootScope, ngNotify, $document, $location, $cookies) {
 		var vm = this;
 		vm.yes_user = false;
 		$rootScope.boxTitle = 'cadastro de tarefas';
@@ -18,7 +18,11 @@
 
 			localStorage.setItem('cadastro-tarefa', JSON.stringify(vm.tarefas_cadastradas));
 
-			Notification({message: 'Tarefa '+name+' Cadastrado Com Sucesso'}, 'success');
+			ngNotify.set('Tarefa cadastrado com sucesso', {
+				position: 'top',
+				type: 'success',
+				duration: 800
+			});
 
 			verify();
 		};

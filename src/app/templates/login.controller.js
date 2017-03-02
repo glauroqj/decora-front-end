@@ -5,7 +5,7 @@
 	.module('decora')
 	.controller('LoginController', LoginController);
 
-	function LoginController($rootScope, $uibModal, $log, $document, Notification, $location, AuthLoginService, $cookies) {
+	function LoginController($rootScope, $uibModal, $log, $document, ngNotify, $location, AuthLoginService, $cookies) {
 		var vm = this;
 		var posicao = 0;
 		var login_status_admin = false;
@@ -25,21 +25,33 @@
 						//alert("ADMIN");
 						$location.path('/dashboard');
 						create_auth('admin');
-						Notification({message: 'Olá '+vm.name+', você está logado!'}, 'success');
+						ngNotify.set('Olá, você está logado! ', {
+							position: 'top',
+							type: 'success',
+							duration: 800
+						});
 						login_status_admin = true;
 					}
 					else if ((user === vm.name) && (password === vm.pass) && (vm.access === 'user')) {
 						//alert("USER")
 						$location.path('/dashboard');
 						create_auth('user');
-						Notification({message: 'Olá '+vm.name+' você está logado!'}, 'success');
+						ngNotify.set('Olá '+vm.nome+', você está logado! ', {
+							position: 'top',
+							type: 'success',
+							duration: 800
+						});
 						login_status_user = true;
 					}
 
 				})/*each*/
 
 				if ( (login_status_admin != true) && (login_status_user != true ) ) {
-					Notification({message: 'Login ou Senha inválidos!'}, 'error');
+					ngNotify.set('Login ou Senha inválidos!', {
+						position: 'top',
+						type: 'error',
+						duration: 800
+					});
 				}
 
 			});
@@ -49,6 +61,15 @@
 		function create_auth (param) {
 			$cookies.put('logado', param);
 		}
+
+		ngNotify.config({
+			theme: 'pure',
+			position: 'top',
+			duration: 2000,
+			sticky: false,
+			button: true,
+			html: false
+		});
 
 		// var actualCookie = $cookies.get('logado');
 		// console.log(actualCookie);
